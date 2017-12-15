@@ -1,0 +1,98 @@
+<div class="row">
+    <div class="col-md-12">
+        <!-- begin panel -->
+        <div class="panel panel-inverse" data-sortable-id="form-stuff-3">
+            <div class="panel-heading">
+                <h4 class="panel-title">Selected Support Request</h4>
+            </div>
+            <div class="panel-body">
+
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Status: </label>
+                        <div class="col-sm-10">
+                            <p class="form-control-static">
+                                {{ReqDetsCtrl.formObj.status}}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Name: </label>
+                        <div class="col-sm-10">
+                            <p class="form-control-static">
+                                {{ReqDetsCtrl.formObj.name}}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Email: </label>
+                        <div class="col-sm-10">
+                            <p class="form-control-static">
+                                {{ReqDetsCtrl.formObj.email}}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">From Profile ID: </label>
+                        <div class="col-sm-10">
+                            <p class="form-control-static">
+                                {{ReqDetsCtrl.formObj.fromProfileId}}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Content: </label>
+                        <div class="col-sm-10">
+                            <p class="form-control-static">
+                                {{ReqDetsCtrl.formObj.content}}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Date Created: </label>
+                        <div class="col-sm-10">
+                            <p class="form-control-static">
+                                {{ReqDetsCtrl.formObj.dateCreated | date:'MMM d, y'}}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Date Modified: </label>
+                        <div class="col-sm-10">
+                            <p class="form-control-static">
+                                {{ReqDetsCtrl.formObj.dateModified | date:'MMM d, y'}}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Date Deactivated: </label>
+                        <div class="col-sm-10">
+                            <p class="form-control-static">
+                                {{ReqDetsCtrl.formObj.dateDeactivated | date:'MMM d, y'}}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <a ui-sref="site.support-requests.list.edit({id: ReqDetsCtrl.formObj._id})">
+                    <button type="button" class="btn btn-white">Edit</button>
+                </a>
+                <button type="button" ng-click="ReqDetsCtrl.openModal(ReqDetsCtrl.formObj)" class="btn btn-danger">Delete
+                </button>
+            </div>
+        </div>
+    </div>
+    <!-- end panel -->
+</div>
+</div>
+
+<div>&nbsp;</div>
+<div class="panel panel-inverse" data-sortable-id="table-basic-4">
+    <div class="panel-heading">
+    </div>
+    <div class="panel-body">
+        <h2 class="crud-support_requests-details_h2">Thread</h2>
+        <div ng-repeat="thread in ReqDetsCtrl.formObj.thread ">
+            <p>{{thread}}</p>
+        </div>
+    </div>
+</div>

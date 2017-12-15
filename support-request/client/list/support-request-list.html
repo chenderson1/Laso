@@ -1,0 +1,42 @@
+<div class="panel panel-inverse" data-sortable-id="table-basic-4">
+    <div class="panel-heading">
+        All Support Requests
+    </div>
+
+    <div class="panel-body">
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead class="crud-support_requests-list_thead">
+                    <tr>
+                        <td>Name</td>
+                        <td>Email</td>
+                        <td>Profile ID</td>
+                        <td>Date Created</td>
+                        <td>Actions</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="item in Ctrl.supportRequests | filter: Ctrl.idFilter() ">
+                        <td>{{item.name}}</td>
+                        <td>{{item.email}}</td>
+                        <td>{{item.fromProfileId}}</td>
+                        <td>{{item.dateCreated}}</td>
+
+                        <td>
+                            <a ui-sref="^.details({id: item._id})">
+                                <button type="button" class="btn btn-white btn-icon btn-circle fa fa-eye"></button>
+                            </a>
+                            <a ui-sref="^.list.edit({id: item._id})">
+                                <button type="button" class="btn btn-white btn-icon btn-circle fa fa-pencil"></button>
+                            </a>
+                            <button type="button" ng-click="Ctrl.openModal(item)" class="btn btn-danger btn-icon btn-circle fa fa-times"></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+<ui-view></ui-view>

@@ -1,0 +1,67 @@
+<div class="panel panel-inverse" data-sortable-id="form-stuff-3">
+    <div class="panel-heading">
+
+    </div>
+    <div class="panel-body">
+        <form name='supReqCtrl.myForm' novalidate>
+            <fieldset>
+                <legend ng-show="supReqCtrl.stateName === 'site.support-requests.list.edit'">Support Request Modify</legend>
+                <legend ng-show="supReqCtrl.stateName === 'site.support-requests.create'" >Support Request Create</legend>
+                <p>Please provide either Name and Email or a From Profile ID</p>
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input ng-disabled="supReqCtrl.myForm.fromProfileId.$touched" class="form-control" type="text" ng-model="supReqCtrl.formObj.name"
+                        name="name" minlength="2" maxlength="30">
+                    <div class="crud-support_requests-modify_validation" ng-show="supReqCtrl.validateForm(supReqCtrl.myForm.name)">
+                        <div ng-show="supReqCtrl.myForm.name.$error.minlength">Must be at least 2 characters</div>
+                        <div ng-show="supReqCtrl.myForm.name.$error.maxlength">Max 30 characters</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input ng-disabled="supReqCtrl.myForm.fromProfileId.$touched" class="form-control" type="email" ng-model="supReqCtrl.formObj.email"
+                        name="email" maxlength="64">
+                    <div class="crud-support_requests-modify_validation" ng-show="supReqCtrl.validateForm(supReqCtrl.myForm.email)">
+                        <div ng-show="supReqCtrl.myForm.email.$error.maxlength">Max 64 characters</div>
+                        <div ng-show="supReqCtrl.myForm.email.$error.email">Please Enter a Valid Email</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="fromProfileId">From Profile ID</label>
+                    <input ng-disabled="supReqCtrl.myForm.name.$touched || supReqCtrl.myForm.email.touched" class="form-control" name="fromProfileId" ng-model="supReqCtrl.formObj.fromProfileId" minlength="12" maxlength="12">
+                    <div class="crud-support_requests-modify_validation" ng-show="supReqCtrl.validateForm(supReqCtrl.myForm.fromProfileId)">
+                            <div ng-show="supReqCtrl.myForm.fromProfileId.$error.minlength">ID must be 12 characters</div>
+                            <div ng-show="supReqCtrl.myForm.fromProfileId.$error.minlength">ID must be 12 characters</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="content">Content</label>
+                    <textarea class="form-control" name="content" ng-model="supReqCtrl.formObj.content" cols="30" rows="10" maxlength="350" required></textarea>
+                    <div class="crud-support_requests-modify_validation" ng-show="supReqCtrl.validateForm(supReqCtrl.myForm.content)">
+                        <div ng-show="supReqCtrl.myForm.content.$error.required">Please provide content for your request</div>
+                        <div ng-show="supReqCtrl.myForm.content.$error.maxlength">Max 350 Characters</div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="pull-left" ng-show="supReqCtrl.stateName === 'site.support-requests.create'">
+                        <button type="button" ng-click="supReqCtrl.create()" class="btn btn-success">Submit</button>
+                        <button class="btn btn-white" ng-click="supReqCtrl.clearForm()">Clear</button>
+                        <a ui-sref='site.support-requests.list'>
+                            <button type="button" ng-click="supReqCtrl.resetForm()" class="btn btn-white">Cancel</button>
+                        </a>
+                    </div>
+
+                </div>
+                <div class="pull-right" ng-show="supReqCtrl.stateName === 'site.support-requests.list.edit'">
+                    <button type="button" ng-click="supReqCtrl.update()" class="btn btn-success">Update</button>
+                    <button type="button" ng-click="supReqCtrl.resetForm()" class="btn btn-white">Reset</button>
+                    <a ui-sref='site.support-requests.list'>
+                        <button type="button" class="btn btn-white">Cancel</button>
+                    </a>
+
+                </div>
+    </div>
+    </fieldset>
+    </form>
+</div>
+</div>
